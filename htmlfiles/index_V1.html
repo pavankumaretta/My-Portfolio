@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavan's Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/Pavan_Profile.jpeg" alt="Pavan Kumar" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Pavan Kumar Etta">Pavan Kumar Etta</h1>
+
+          <p class="title" style="font-size: 14px;">Software Engineer II </p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:pavankumar.etta02@gmail.com" class="contact-link">pavankumar.etta02@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+15088630500" class="contact-link">+15088630500</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>North Dartmouth, Massachusetts, United States</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/pavan-kumar-etta-b9b100174/" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/Elizah550" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <!-- <li class="navbar-item">
+            <a href=" https://leetcode.com/u/PavanKumarEtta/">
+              <button class="navbar-link " data-nav-link>Leetcode</button>
+            </a>   
+          </li> -->
+
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Publications</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Passionate data enthusiast with a knack for solving complex problems. I thrive on turning data into actionable insights to drive meaningful outcomes.
+          </p>
+
+          <p>
+            Looking ahead, I aim to explore the intersection of machine learning, behavioral analytics, and wearable technology,
+            envisioning a future where personalized health and data-driven decisions enhance everyday life. My ultimate aspiration is to harness AI and computational statistics to drive transformative innovations in healthcare and beyond.
+          </p>
+
+          <p>
+           
+          I am devoted to transforming the boundaries of data and technology, crafting innovative solutions that inspire progress and redefine possibilities for a brighter tomorrow.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <h4 class="h4 service-title">Professionally</h4>
+
+          <ul class="service-list">
+
+            <li class="service-item" data-testimonials-item>
+
+              <h6 hidden data-testimonials-date></h6>
+
+              <div class="service-icon-box">
+                <img src="./assets/images/brain.png" alt="anomaly icon" width="40" data-testimonials-avatar>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-testimonials-title>Predictive Health Analytics</h4>
+
+                <div class="service-item-text" data-testimonials-text>
+                  <p>
+                    Leveraging wearable sensor data to forecast vital trends and detect early signs of health anomalies
+                    <br>
+                  </p>
+
+                  <p>
+                    <br>
+                    Harnessing real-time and historical wearable data to predict vital trends and uncover early indicators of health anomalies. My work focuses on integrating advanced statistical models and time-series analysis to build proactive health monitoring systems that support personalized wellness and preventive care.
+                    <br><br>
+                   Also, worked on group frauds identification by leveraging graph theory. Modelled the entities in a graph, connected them with various KPIs and applied both community detection algorithms and models such as Louvain Algorithm, Leiden Algorithm, PSO optimization, Graph Convolution Network and Deep Modularity Network.
+                  </p>
+                </div>
+              </div>
+
+            </li>
+
+            <li class="service-item" data-testimonials-item>
+
+              <h6 hidden data-testimonials-date></h6>
+
+              <div class="service-icon-box">
+                <img src="./assets/images/setting.png" alt="customer icon" width="40" data-testimonials-avatar>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-testimonials-title>Intelligent Systems Engineering</h4>
+
+                <div class="service-item-text" data-testimonials-text>
+                  <p>
+                    Predicting customer behavior and driving strategic decisions
+                    <br>
+                  </p>
+
+                  <p>
+                    <br>
+                    Designing and developing scalable, intelligent systems that seamlessly combine software engineering principles with machine learning models. From data acquisition pipelines to cloud-integrated analytics platforms, I focus on creating solutions that are reliable, efficient, and adaptable for real-world deployment.
+                    
+                    <br><br>
+                    Have built both classification models and regression models in which risk score and life time value are predicted respectively. 
+                  </p>
+                </div>
+              </div>
+
+            </li>
+
+          </ul>
+
+      
+        </section>
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Pradeep Janardhanan" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Pradeep Janardhanan</h4>
+
+              <time data-modal-date>14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Worked at</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="https://www.rhenix.org/" target="_blank">
+                <img src="./assets/images/rhenix_1.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://www.curescience.org/in-en" target="_blank">
+                <img src="./assets/images/curescience.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://vsualthree60.com/" target="_blank">
+                <img src="./assets/images/soc.png" alt="client logo">
+              </a>
+            </li>
+
+            <!-- <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              </a>
+            </li> -->
+
+            <!-- <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-5-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li> -->
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <!-- <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header> -->
+        <header style="display: flex; align-items: center; gap: 10px;">
+          <h2 class="h2 article-title" style="margin: 0;">Resume</h2>
+        
+          <a
+            href="./assets/Pavan_Kumar_Etta_SD.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Resume"
+            class="resume-link"
+          >
+            <!-- Hyperlink / external icon (SVG) -->
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M14 3h7v7" />
+              <path d="M10 14L21 3" />
+              <path d="M21 14v7h-7" />
+              <path d="M3 10v11h11" />
+            </svg>
+          </a>
+        </header>
+        
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Univeristy of Massachusetts, North Dartmouth</h4>
+
+              <span>2024 — 2025</span>
+
+              <p class="timeline-text">
+                Masters in Data Science
+                <br>
+                SGPA - 3.96
+                <br>
+              </p>
+
+            </li>
+            <!--
+            Second education--------
+            -->
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Indian Institute of Information and Technology, Chittoor</h4>
+
+              <span>2017 — 2021</span>
+
+              <p class="timeline-text">
+                Bachelors in Electronics and Communication Engineering
+               
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Professional Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Senior Software Engineer, Rhenix Lifescience LLP, India</h4>
+
+              <span>July 2021 — Aug 2024</span>
+
+              <ul class="timeline-text" style="padding-left: 20px;">
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Led a team to automate health data collection from smart wearables (Fitbit, Oura, etc.) using OAuth 2.0 and Open APIs, capturing data at 5-second intervals for in-depth research on heart rate patterns.
+                </li>
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Developed a customer-focused app with features like appointment booking, Google Maps integration, and order tracking using AWS and Flutter for secure operations and real-time notifications.
+                </li>
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Deployed processes to Extract, Transform, and Load (ETL) using Python from large datasets to the IRIS DB with AWS Glue, ensuring efficient and rapid data access.
+                </li>
+
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Machine Learning Engineer, Solank Power Systems, India</h4>
+
+              <span>Jan 2021 — June 2021</span>
+
+              <ul class="timeline-text" style="padding-left: 20px;">
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Developed an IoT-based condition monitoring system using ESP32 to transmit sensor data to the cloud, facilitating real-time processing and alerts for machinery reliability.
+                </li>
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Utilized cost-effective MEMS sensors for real-time condition monitoring, predicting machine failures to improve operational efficiency.
+                </li>
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Created a data acquisition system using MEMS-based accelerometers and ESP32, applying Matlab for FFT and enabling fault detection through proactive maintenance strategies.
+                </li>
+
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Achieved high accuracy OF 97% in forest fire prediction utilizing TinyML models and on-device real-time data processing techniques, using Matlab, Jupyter Notebook, and Edge Impulse.
+                </li>
+              </ul>
+
+              
+
+            </li>
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">GirlScript Summer of Code, Open Source, Remote</h4>
+              <span>March 2021 — May 2021</span>
+
+              <ul class="timeline-text" style="padding-left: 20px;">
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Contributed to multiple open-source project issues, which helped resolve long-standing bugs and improved project stability for over <b>1,000 active users</b>.
+                </li>
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Enhanced the <i>Statistics-and-Econometrics-for-Data-Science</i> project by submitting code improvements; my pull request was successfully merged, boosting project efficiency by <b>~20%</b>.
+                </li>
+                <li style="list-style: disc; font: inherit; color: var(--light-gray);">
+                  Utilized Jupyter Notebook for data analysis and reproducibility, which enabled better collaboration within the contributor team and reduced debugging time by <b>30%</b>.
+                </li>
+              </ul>
+              </ul>
+
+              
+
+            </li>
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper h5">
+                <span>Languages - </span> <span style="font-weight: var(--fw-300); color: white;">Python, JavaScript, Typescript, C/C++, Java, Go, MySQL, MongoDB, PostgreSQL, MSSQL</span>
+              </div>
+
+            </li>
+            <li class="skills-item">
+
+              <div class="title-wrapper h5">
+                <span>Frameworks - </span> <span style="font-weight: var(--fw-300); color: white;">Numpy, Pandas, Sklearn, PySpark, Hadoop, NLTK, OpenCV, PyTorch, TensorFlow, ChatGPT</span>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper h5">
+                <span>DS Tools - </span> <span style="font-weight: var(--fw-300); color: white;"> Tensorflow, Keras, Pytorch, OpenCV, Sklearn, Numpy, Pandas, PySpark</span>
+              </div>
+
+            </li>
+
+            <li class="skills-item"></li>
+
+              <div class="title-wrapper h5">
+                <span>Software - </span> <span style="font-weight: var(--fw-300); color: white;">HTML/SCSS, Node.js, React, React Native, Angular.js, Next.js, Vue.js, Django, GraphQL</span>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper h5">
+                <span>Cloud Tools - </span> <span style="font-weight: var(--fw-300); color: white;"> Databricks, Snowflake, Kafka, AWS, GCP, Git</span>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper h5">
+                <span>Relevant Expertise - </span> <span style="font-weight: var(--fw-300); color: white;">Deep Learning, Large Language Models, Computer Science</span>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper h5">
+                <span>Others - </span> <span style="font-weight: var(--fw-300); color: white;"> Django, Flask, Flutter, Robot Operating System</span>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Recognitions</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Personal Projects</button>
+            </li>
+
+            <!-- <li class="filter-item">
+              <button data-filter-btn>Blogs</button>
+            </li> -->
+
+            <li class="filter-item">
+              <button data-filter-btn>Certifications</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Recognitions</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Personal Projects</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Blogs</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Certifications</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="Recognitions">
+              <a href="./assets/images/mvp-3.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/mvp-3.png" alt="MVP" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Most Valued Player - Thrice</h3>
+
+                <p class="project-category">Recognitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Recognitions">
+              <a href="./assets/images/promo.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/promo.jpg" alt="promo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DS-II Promotion</h3>
+
+                <p class="project-category">Recognitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Recognitions">
+              <a href="./assets/images/mvp-2.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/mvp-2.png" alt="MVP" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Most Valued Player - Twice</h3>
+
+                <p class="project-category">Recognitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Recognitions">
+              <a href="./assets/images/mvp-1.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/mvp-1.png" alt="MVP" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Most Valued Player - Once</h3>
+
+                <p class="project-category">Recognitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Recognitions">
+              <a href="./assets/images/swiggstar-1.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/swiggstar-1.jpg" alt="swiggstar" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Swiggstar</h3>
+
+                <p class="project-category">Recognitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Recognitions">
+              <a href="./assets/images/vsualthree60_reco.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/vsualthree60_reco.jpg" alt="vsualthree60" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Vsualthree60 LOR</h3>
+
+                <p class="project-category">Recognitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Personal Projects">
+              <a href="./assets/images/bolt.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/bolt.png" alt="bolt" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Bolt - AI-infused Swing Trading Platform</h3>
+
+                <p class="project-category">Personal Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Personal Projects">
+              <a href="./assets/images/bolt-bot.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/bolt-bot.png" alt="bolt bot" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Bolt Telegram Bot for Realtime Querying & Alerts</h3>
+
+                <p class="project-category">Personal Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Personal Projects">
+              <a href="./assets/images/index_app.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/index_app.png" alt="inDex" loading="lazy">
+                </figure>
+
+                <h3 class="project-title" style="text-transform: none;">inDex - open data community platform </h3>
+
+                <p class="project-category">Personal Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Personal Projects">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/search-engine.png" alt="local search engine" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Local Search Engine - Cache daily surfed websites locally and search content instead of just URL</h3>
+
+                <p class="project-category">Personal Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Personal Projects">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/content-automation.png" alt="content automation" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Content Automation - Leverage stock images, videos and Gen AI to automate content creation and upload to social media.</h3>
+
+                <p class="project-category">Personal Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Blogs">
+              <a href="https://bytes.swiggy.com/utilizing-devnet-with-variational-loss-for-fraud-detection-in-hyperlocal-food-delivery-19e72999acfb" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/devnet.jpg" alt="devnet" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DevNet Model with Variational Loss</h3>
+
+                <p class="project-category">Blogs</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Blogs">
+              <a href="https://bytes.swiggy.com/identifying-fraud-rings-using-domain-aware-weighted-community-detection-6a14c27c43e0" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/graph.jpg" alt="devnet" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fraud Rings Detection</h3>
+
+                <p class="project-category">Blogs</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/C1.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/C1.png" alt="ibm grm" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Machine Learning </h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/C2.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/C2.png" alt="tensorflow" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Python for Datascience and AI</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/chatbot.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/chatbot.jpg" alt="chatbot" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Deep Learning and Natural Language Processing</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/tensorflow.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/tensorflow.jpg" alt="tensorflow" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Intro to Tensorflow</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/ibm.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ibm.jpg" alt="sql" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Databases & SQL</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/ml_u.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ml_u.jpg" alt="ml" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Machine Learning Hands-On</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/ml_c.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ml_c.jpg" alt="ml andrew ng" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Machine Learning</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/eh_u.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/eh_u.jpg" alt="ethical hacking" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Ethical Hacking and Network</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/skyfi.jpg" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/skyfi.jpg" alt="skyfi" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Quadcopter Workshop</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Certifications">
+              <a href="./assets/images/rc_car.png" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/rc_car.png" alt="rc car" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">RC Car Competition Event Organizer</h3>
+
+                <p class="project-category">Certifications</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="publications">
+
+        <header>
+          <h2 class="h2 article-title">Publications</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="https://www.mdpi.com/1424-8220/23/3/1454" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/binned.png" alt="DevNet" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Binned Data Imputation</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Jan 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Retrieved and preprocessed raw wearable data, organizing it into binned time intervals to support accurate imputation of missing values in time series datasets.</h3>
+
+                  <!-- <p class="blog-text">
+                    International Conference on Data Sciences and Management of Data (CODS-COMAD 2024) - Bangalore, India
+                  </p> -->
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://doi.org/10.3389/fdata.2024.1422650" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/research_02.png" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Efficient use of binned data for imputing univariate time series data</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Aug 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Retrieved, cleaned, and organized raw time series data, preparing it for efficient imputation using a binned data approach to improve data quality and reliability</h3>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

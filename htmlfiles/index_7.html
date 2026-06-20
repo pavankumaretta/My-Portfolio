@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavan Kumar Etta — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root { --spd: 0.4s; }
+
+[data-theme="light"] {
+  --bg:#F6F8FF; --bg2:#EEF3FF; --bg3:#E4ECFF;
+  --card:rgba(255,255,255,0.86); --card-h:rgba(255,255,255,0.98);
+  --border:rgba(17,24,39,0.07); --border-s:rgba(17,24,39,0.14);
+  --text:#081122; --sub:#46536A; --muted:#8896B0;
+  --a:#245BFF; --a2:#8B5CF6; --a3:#0FA958;
+  --ar:36,91,255;
+  --grad:linear-gradient(135deg,#0FA958 0%,#245BFF 55%,#8B5CF6 100%);
+  --nav:rgba(246,248,255,0.88);
+  --gold:#CA8A04;
+}
+[data-theme="dark"] {
+  --bg:#070B14; --bg2:#0D1221; --bg3:#111827;
+  --card:rgba(255,255,255,0.04); --card-h:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07); --border-s:rgba(255,255,255,0.13);
+  --text:#F0F2FA; --sub:#8892B0; --muted:#4A5568;
+  --a:#64FFDA; --a2:#7C6FFF; --a3:#FF6B9D;
+  --ar:100,255,218;
+  --grad:linear-gradient(135deg,#64FFDA 0%,#7C6FFF 50%,#FF6B9D 100%);
+  --nav:rgba(7,11,20,0.92);
+  --gold:#FFD166;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background var(--spd),color var(--spd)}
+
+/* subtle bg pattern */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 10% 10%,rgba(var(--ar),.09),transparent 30%),radial-gradient(circle at 90% 15%,rgba(139,92,246,.09),transparent 28%),radial-gradient(circle at 50% 90%,rgba(var(--ar),.06),transparent 25%);pointer-events:none;z-index:-1}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 clamp(16px,5vw,80px);display:flex;align-items:center;justify-content:space-between;background:var(--nav);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background var(--spd)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.5px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--sub);text-decoration:none;padding:6px 13px;border-radius:20px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:var(--card-h)}
+.nav-r{display:flex;align-items:center;gap:10px}
+
+/* theme toggle */
+.tbtn{width:44px;height:24px;background:var(--bg3);border:1px solid var(--border-s);border-radius:12px;cursor:pointer;position:relative;display:flex;align-items:center;padding:2px;outline:none;transition:background .3s}
+.tknob{width:18px;height:18px;background:var(--grad);border-radius:50%;transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+[data-theme="light"] .tknob{transform:translateX(20px)}
+.hire{background:var(--a);color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:999px;text-decoration:none;transition:filter .2s,transform .2s;white-space:nowrap}
+.hire:hover{filter:brightness(1.1);transform:translateY(-1px)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:100px clamp(20px,8vw,120px) 80px;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(var(--ar),.1);border:1px solid rgba(var(--ar),.25);color:var(--a);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:28px}
+.bdot{width:6px;height:6px;background:var(--a3);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,6.5vw,86px);font-weight:700;line-height:.97;letter-spacing:-3px;margin-bottom:18px}
+.hero-name .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:clamp(15px,1.8vw,20px);color:var(--sub);font-weight:400;margin-bottom:20px;line-height:1.5}
+.hero-role strong{color:var(--text);font-weight:600}
+.hero-desc{font-size:15px;color:var(--sub);line-height:1.85;max-width:540px;margin-bottom:36px}
+.hero-stats{display:flex;gap:36px;margin-bottom:40px;flex-wrap:wrap}
+.sn{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-1px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.sl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:7px;background:var(--a);color:#fff;font-size:13px;font-weight:600;padding:12px 26px;border-radius:999px;text-decoration:none;transition:filter .2s,transform .2s;box-shadow:0 4px 16px rgba(var(--ar),.28)}
+.btn-p:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--text);font-size:13px;font-weight:500;padding:11px 22px;border-radius:999px;border:1px solid var(--border-s);text-decoration:none;transition:border-color .2s,background .2s}
+.btn-o:hover{border-color:var(--a);background:rgba(var(--ar),.05)}
+
+/* ── SECTION BASE ── */
+section{padding:96px clamp(20px,8vw,120px);max-width:1400px;margin:0 auto;position:relative}
+.s-bg{background:var(--bg2)}
+.slbl{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--a);margin-bottom:14px}
+.slbl::before{content:'';width:22px;height:1px;background:var(--a)}
+.stitle{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,50px);font-weight:700;letter-spacing:-2px;line-height:1.1;margin-bottom:14px}
+.ssub{font-size:15px;color:var(--sub);max-width:480px;line-height:1.7;margin-bottom:56px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px}
+.about-text p{font-size:15px;color:var(--sub);line-height:1.9;margin-bottom:18px}
+.about-text p strong{color:var(--text)}
+
+/* ── SKILLS LOGOS SECTION ── */
+#skills{background:var(--bg2)}
+.skills-cats{display:flex;flex-direction:column;gap:40px;margin-top:56px}
+.skill-cat-title{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.skill-cat-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.skill-logos{display:flex;flex-wrap:wrap;gap:12px}
+.skill-logo{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 14px;transition:border-color .2s,transform .2s,box-shadow .2s;cursor:default}
+.skill-logo:hover{border-color:var(--border-s);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.skill-logo img{width:20px;height:20px;object-fit:contain;flex-shrink:0}
+.skill-logo span{font-size:12px;font-weight:500;color:var(--sub);white-space:nowrap}
+/* icon fallback for logos without img */
+.sico{width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+
+/* ── EXPERIENCE ── */
+.exp-timeline{position:relative;margin-top:56px}
+.exp-timeline::before{content:'';position:absolute;left:19px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--a),var(--a2),transparent);opacity:.3}
+.exp-item{display:grid;grid-template-columns:58px 1fr;gap:20px;margin-bottom:36px;position:relative}
+.exp-dot{width:38px;height:38px;background:var(--card);border:1px solid var(--border-s);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;z-index:1;transition:border-color .2s,background .2s}
+.exp-item:hover .exp-dot{border-color:var(--a);background:rgba(var(--ar),.07)}
+.exp-card{background:var(--card);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.55);border-radius:18px;padding:26px 28px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:0;transition:opacity .3s}
+.exp-item:hover .exp-card{border-color:var(--border-s);transform:translateX(4px)}
+.exp-item:hover .exp-card::before{opacity:1}
+[data-theme="dark"] .exp-card{border-color:var(--border)}
+.exp-hd{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.exp-role{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;letter-spacing:-.3px}
+.exp-period{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);background:var(--bg3);padding:3px 9px;border-radius:4px;border:1px solid var(--border);white-space:nowrap}
+.exp-co{font-size:12px;color:var(--a);font-weight:600;margin-bottom:14px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.exp-ul li{font-size:13.5px;color:var(--sub);line-height:1.65;padding-left:16px;position:relative}
+.exp-ul li::before{content:'▸';position:absolute;left:0;color:var(--a);font-size:10px;top:4px}
+.exp-ul li strong{color:var(--text)}
+.exp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:10.5px;color:var(--a);background:rgba(var(--ar),.07);border:1px solid rgba(var(--ar),.18);padding:3px 9px;border-radius:4px}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin-top:56px}
+.p-card{background:var(--card);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.55);border-radius:18px;padding:26px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
+.p-card::after{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .3s;border-radius:14px;padding:1px;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.p-card:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(0,0,0,.15)}
+.p-card:hover::after{opacity:1}
+[data-theme="dark"] .p-card{border-color:var(--border)}
+.p-card>*{position:relative;z-index:1}
+.p-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:14px}
+.p-ico{width:46px;height:46px;background:var(--bg3);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:18px;transition:border-color .2s}
+.p-card:hover .p-ico{border-color:rgba(var(--ar),.3);background:rgba(var(--ar),.07)}
+.p-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.3px;margin-bottom:8px;line-height:1.3}
+.p-desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-bottom:18px}
+.p-stack{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
+.p-tag{font-size:10px;font-weight:500;color:var(--sub);background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:2px 8px}
+.p-arr{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.5px;transition:color .2s}
+.p-card:hover .p-arr{color:var(--a)}
+.arr-ico{width:26px;height:26px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;transition:border-color .2s,transform .2s}
+.p-card:hover .arr-ico{border-color:var(--a);transform:translate(2px,-2px)}
+
+/* ── EDUCATION ── */
+#education{background:var(--bg2)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:34px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.edu-card:hover{border-color:var(--border-s);transform:translateY(-3px)}
+.edu-badge{display:inline-flex;background:rgba(var(--ar),.08);border:1px solid rgba(var(--ar),.2);border-radius:6px;padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:18px}
+.edu-school{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;line-height:1.3}
+.edu-deg{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:14px}
+.edu-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.edu-mi{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.gpa{display:inline-flex;align-items:center;gap:5px;background:rgba(255,209,102,.1);border:1px solid rgba(255,209,102,.22);border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;color:var(--gold)}
+.edu-divider{border:none;border-top:1px solid var(--border);margin:18px 0}
+.edu-section-ttl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.edu-tags{display:flex;flex-wrap:wrap;gap:6px}
+.etag{font-size:11px;color:var(--sub);background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:3px 9px}
+
+/* coursework table */
+.cw-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.cw-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);line-height:1.5}
+.cw-dot{width:5px;height:5px;border-radius:50%;background:var(--a);flex-shrink:0}
+
+/* certs */
+.cert-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.cert-card{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;transition:border-color .2s,transform .2s}
+.cert-card:hover{border-color:var(--border-s);transform:translateY(-2px)}
+.cert-ico{font-size:20px}
+.cert-name{font-size:12.5px;font-weight:600;color:var(--text)}
+.cert-by{font-size:11px;color:var(--muted)}
+
+/* ── PUBLICATIONS ── */
+.pub-list{display:flex;flex-direction:column;gap:14px;margin-top:56px}
+.pub{display:flex;gap:24px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.pub:hover{border-color:var(--border-s);transform:translateX(5px)}
+.pub-yr{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:800;color:var(--border-s);line-height:1;white-space:nowrap;min-width:64px;transition:color .2s}
+.pub:hover .pub-yr{color:var(--a)}
+.pub-j{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:6px}
+.pub-t{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;margin-bottom:7px;line-height:1.35}
+.pub-d{font-size:12.5px;color:var(--sub);line-height:1.65}
+.pub-arr2{color:var(--muted);font-size:18px;transition:color .2s,transform .2s;flex-shrink:0;margin-top:2px}
+.pub:hover .pub-arr2{color:var(--a);transform:translate(3px,-3px)}
+
+/* ── CONTACT ── */
+#contact{text-align:center}
+.con-inner{max-width:640px;margin:0 auto}
+.cbox{margin-top:52px;background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.82));border:1px solid rgba(255,255,255,.72);border-radius:26px;padding:52px 44px;position:relative;overflow:hidden}
+[data-theme="dark"] .cbox{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border-color:var(--border-s)}
+.cbox::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--grad)}
+.c-email{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--text);text-decoration:none;display:inline-block;margin-bottom:8px;transition:color .2s}
+.c-email:hover{color:var(--a)}
+.c-phone{font-size:13px;color:var(--muted);margin-bottom:24px}
+.c-links{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+
+/* ── MODAL ── */
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(12px);z-index:800;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg2);border:1px solid var(--border-s);border-radius:22px;padding:38px;max-width:660px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(28px) scale(.97);transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.modal-ov.open .modal{transform:translateY(0) scale(1);opacity:1}
+.modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--sub);transition:background .2s,color .2s;outline:none}
+.modal-close:hover{background:var(--border);color:var(--text)}
+.m-ico{width:56px;height:56px;background:rgba(var(--ar),.08);border:1px solid rgba(var(--ar),.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+.m-title{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;letter-spacing:-.8px;margin-bottom:6px}
+.m-sub{font-size:12px;color:var(--a);font-weight:600;letter-spacing:.5px;margin-bottom:18px}
+.m-desc{font-size:13.5px;color:var(--sub);line-height:1.8;margin-bottom:22px}
+.m-stitle{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.m-hl{display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.m-hl-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--sub);line-height:1.6}
+.m-hl-ico{width:22px;height:22px;background:rgba(var(--ar),.09);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
+.m-stack{display:flex;flex-wrap:wrap;gap:7px}
+.m-tag{font-size:11px;font-weight:600;color:var(--a);background:rgba(var(--ar),.08);border:1px solid rgba(var(--ar),.2);border-radius:6px;padding:4px 11px}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:28px clamp(20px,8vw,120px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer p{font-size:12px;color:var(--muted)}
+footer span{color:var(--a)}
+footer a{color:var(--a);text-decoration:none}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 18px}
+  .nav-links{display:none}
+  section{padding:70px 20px}
+  #hero{padding:90px 20px 60px}
+  .about-grid,.edu-grid{grid-template-columns:1fr;gap:32px}
+  .proj-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+  .pub{flex-direction:column;gap:8px}.pub-yr{font-size:20px;min-width:auto}
+  .cw-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Pavan Kumar Etta</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="tbtn" id="themeBtn" aria-label="Toggle theme" onclick="toggleTheme()">
+      <div class="tknob" id="tknob"></div>
+    </button>
+    <a href="./assets/Pavan_Kumar_Etta_SD.pdf" target="_blank" class="hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="bdot"></span>Available for SWE Roles · May 2026</div>
+    <h1 class="hero-name">Pavan Kumar<br><span class="g">Etta</span></h1>
+    <div class="hero-role"><strong>Software Engineer II</strong> · Backend &amp; Distributed Systems · Python, Go, AWS</div>
+    <p class="hero-desc">4+ years building production-grade microservices, real-time data pipelines, and ML-integrated backends. Currently completing MS Data Science at UMass Dartmouth with a 4.0 GPA while working as a Graduate Research Assistant.</p>
+    <div class="hero-stats">
+      <div><div class="sn">4+</div><div class="sl">Years Exp.</div></div>
+      <div><div class="sn">35%</div><div class="sl">Throughput ↑</div></div>
+      <div><div class="sn">10M+</div><div class="sl">Records/mo</div></div>
+      <div><div class="sn">4.0</div><div class="sl">MS GPA</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="./assets/Pavan_Kumar_Etta_SD.pdf" target="_blank" class="btn-p">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View Resume
+      </a>
+      <a href="https://www.linkedin.com/in/pavan-kumaretta-b9b100174" target="_blank" class="btn-o">LinkedIn ↗</a>
+      <a href="https://github.com/Elizah550" target="_blank" class="btn-o">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="s-bg" style="background:var(--bg2)">
+  <div class="rv">
+    <div class="slbl">About me</div>
+    <h2 class="stitle">Building systems that <span class="grad-text">actually scale</span></h2>
+    <p class="ssub">From high-throughput pipelines to ML-integrated backends — engineering that performs under pressure.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-text rv">
+      <p>I'm <strong>Pavan Kumar Etta</strong>, a Software Engineer with 4+ years designing production-grade distributed systems. Currently completing my <strong>Master's in Data Science (GPA 4.0)</strong> at UMass Dartmouth as a Graduate Research Assistant.</p>
+      <p>At <strong>Rhenix Lifesciences</strong>, I architected microservices handling 10M+ records/month, built event-driven Kafka pipelines on AWS MSK, and shipped mobile apps to 2,000+ active users across health tech platforms.</p>
+      <p>My stack spans the full backend spectrum — from low-latency Go services to distributed PySpark workloads, from Redis caching strategies to Kubernetes deployments. I don't just write code; I <strong>architect systems designed to last</strong>.</p>
+    </div>
+    <div class="rv" style="transition-delay:.12s">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+          <div style="font-size:22px;margin-bottom:8px">⚙️</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:5px">Backend &amp; Distributed</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.6">Microservices, event-driven pipelines, Kafka, fault-tolerant systems</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+          <div style="font-size:22px;margin-bottom:8px">📊</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:5px">Data Engineering</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.6">PySpark, Hadoop, Spark pipelines, real-time streaming</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+          <div style="font-size:22px;margin-bottom:8px">☁️</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:5px">Cloud &amp; DevOps</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.6">AWS-native, Docker, Kubernetes, GitLab CI/CD</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+          <div style="font-size:22px;margin-bottom:8px">🤖</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:5px">ML &amp; AI</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.6">PyTorch, TensorFlow, Scikit-learn, production ML</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="rv">
+    <div class="slbl">Technical Skills</div>
+    <h2 class="stitle">Tools &amp; <span class="grad-text">technologies</span></h2>
+    <p class="ssub" style="margin-bottom:0">Every tool I work with day-to-day across the full engineering stack.</p>
+  </div>
+  <div class="skills-cats rv" style="transition-delay:.08s">
+
+    <div>
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python"><span>Python</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/go/00ADD8" alt="Go"><span>Go</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS"><span>JavaScript</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TS"><span>TypeScript</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/java/007396" alt="Java"><span>Java</span></div>
+        <div class="skill-logo"><div class="sico">💻</div><span>C++</span></div>
+        <div class="skill-logo"><div class="sico">🔷</div><span>C#</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-cat-title">Backend &amp; Frameworks</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/django/092E20" alt="Django"><span>Django</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/flask/000000" alt="Flask" style="filter:var(--flask-filter,none)"><span>Flask</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js"><span>Node.js</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React"><span>React</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/angular/DD0031" alt="Angular"><span>Angular</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/nextdotjs/000000" alt="Next.js"><span>Next.js</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/graphql/E10098" alt="GraphQL"><span>GraphQL</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-cat-title">Databases &amp; Storage</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL"><span>PostgreSQL</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"><span>MySQL</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB"><span>MongoDB</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/redis/DC382D" alt="Redis"><span>Redis</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/amazondynamodb/4053D6" alt="DynamoDB"><span>DynamoDB</span></div>
+        <div class="skill-logo"><div class="sico">🗄️</div><span>MSSQL</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-cat-title">Cloud &amp; Infrastructure</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/amazonwebservices/FF9900" alt="AWS"><span>AWS</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="GCP"><span>GCP</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/microsoftazure/0078D4" alt="Azure"><span>Azure</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"><span>Docker</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes"><span>Kubernetes</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/terraform/7B42BC" alt="Terraform"><span>Terraform</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-cat-title">Data Engineering &amp; Streaming</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/apachekafka/231F20" alt="Kafka"><span>Kafka</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/apachespark/E25A1C" alt="Spark"><span>Apache Spark</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/apachehadoop/66CCFF" alt="Hadoop"><span>Hadoop</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks"><span>Databricks</span></div>
+        <div class="skill-logo"><div class="sico">❄️</div><span>Snowflake</span></div>
+        <div class="skill-logo"><div class="sico">📊</div><span>Redshift</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-cat-title">ML &amp; Data Science</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/pytorch/EE4C2C" alt="PyTorch"><span>PyTorch</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/tensorflow/FF6F00" alt="TensorFlow"><span>TensorFlow</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn"><span>Scikit-learn</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/numpy/013243" alt="NumPy"><span>NumPy</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas"><span>Pandas</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/opencv/5C3EE8" alt="OpenCV"><span>OpenCV</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill-cat-title">DevOps &amp; Tools</div>
+      <div class="skill-logos">
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/gitlab/FC6D26" alt="GitLab"><span>GitLab CI/CD</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub"><span>GitHub</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux"><span>Linux</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman"><span>Postman</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/jira/0052CC" alt="JIRA"><span>JIRA</span></div>
+        <div class="skill-logo"><img src="https://cdn.simpleicons.org/jest/C21325" alt="Jest"><span>Jest</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--bg2)">
+  <div class="rv">
+    <div class="slbl">Experience</div>
+    <h2 class="stitle">Where I've <span class="grad-text">made impact</span></h2>
+    <p class="ssub">A track record of shipping scalable systems across health tech, research, and industrial domains.</p>
+  </div>
+  <div class="exp-timeline">
+
+    <div class="exp-item rv">
+      <div class="exp-dot">🎓</div>
+      <div class="exp-card">
+        <div class="exp-hd"><div class="exp-role">Graduate Research Assistant</div><div class="exp-period">Nov 2024 – May 2025</div></div>
+        <div class="exp-co">📍 University of Massachusetts, Dartmouth · North Dartmouth, MA</div>
+        <ul class="exp-ul">
+          <li>Built React + Angular web apps with TypeScript to visualize medical research data using Plotly.js, backed by Django/Python.</li>
+          <li>Optimized MySQL schema with partitioning and indexing; integrated Redis caching layer — slashed query response time by <strong>70%</strong>.</li>
+          <li>Containerized application with Docker, improving scalability and boosting active users by <strong>25%</strong>.</li>
+        </ul>
+        <div class="exp-chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">Django</span><span class="chip">Redis</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Plotly.js</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item rv" style="transition-delay:.07s">
+      <div class="exp-dot">⚡</div>
+      <div class="exp-card">
+        <div class="exp-hd"><div class="exp-role">Software Engineer II</div><div class="exp-period">Jul 2021 – Aug 2024</div></div>
+        <div class="exp-co">📍 Rhenix Lifesciences LLP · Telangana, India</div>
+        <ul class="exp-ul">
+          <li>Designed microservices-based fullstack architecture using Python, Django, and AWS (Lambda, API Gateway, EC2, DynamoDB) for large-scale wearable telemetry streams.</li>
+          <li>Deployed mobile apps to Google Play Store &amp; Apple App Store — <strong>2,000+ active downloads</strong>.</li>
+          <li>Built high-throughput REST APIs integrating Fitbit, Apple Health, and Withings APIs — improved system throughput by <strong>~35%</strong>.</li>
+          <li>Architected event-driven pipelines on AWS MSK (Kafka), enabling fault-tolerant real-time ingestion with multi-partition topic design.</li>
+          <li>Reduced system latency by <strong>~40%</strong> via distributed pipelines; analytics dashboard processing 50K+ daily health data points.</li>
+        </ul>
+        <div class="exp-chips"><span class="chip">Python</span><span class="chip">Go</span><span class="chip">AWS MSK</span><span class="chip">Kafka</span><span class="chip">DynamoDB</span><span class="chip">REST API</span><span class="chip">Django</span><span class="chip">React Native</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item rv" style="transition-delay:.14s">
+      <div class="exp-dot">🔬</div>
+      <div class="exp-card">
+        <div class="exp-hd"><div class="exp-role">Lead Software Engineer</div><div class="exp-period">Jun 2021 – Aug 2021</div></div>
+        <div class="exp-co">📍 CureScience Institute · United States</div>
+        <ul class="exp-ul">
+          <li>Developed and published mobile apps (Swift/iOS + cross-platform) on App Store and Play Store.</li>
+          <li>Built scalable ETL pipelines for ingesting wearable data (Fitbit, Oura, Garmin) supporting biomedical cardiometabolic research.</li>
+          <li>Managed time-series health data in PostgreSQL, collaborating with data scientists to derive research insights.</li>
+        </ul>
+        <div class="exp-chips"><span class="chip">Swift</span><span class="chip">AWS Lambda</span><span class="chip">ETL</span><span class="chip">PostgreSQL</span><span class="chip">Postman</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item rv" style="transition-delay:.21s">
+      <div class="exp-dot">🤖</div>
+      <div class="exp-card">
+        <div class="exp-hd"><div class="exp-role">Machine Learning Engineer</div><div class="exp-period">Jan 2021 – Apr 2021</div></div>
+        <div class="exp-co">📍 Solank Power Systems · Chennai, India</div>
+        <ul class="exp-ul">
+          <li>Built real-time telemetry ingestion pipelines for embedded hardware using Python and NumPy.</li>
+          <li>Implemented ML-based anomaly detection with Scikit-learn, achieving <strong>~93% accuracy</strong> in equipment monitoring.</li>
+          <li>Signal preprocessing pipelines improved signal quality and system stability by <strong>~30%</strong>.</li>
+        </ul>
+        <div class="exp-chips"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">MATLAB</span><span class="chip">NumPy</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="rv">
+    <div class="slbl">Projects</div>
+    <h2 class="stitle">Selected <span class="grad-text">work</span></h2>
+    <p class="ssub">Click any project to explore architecture, stack, and impact in detail.</p>
+  </div>
+  <div class="proj-grid">
+
+    <div class="p-card rv" onclick="openModal('water')">
+      <div class="p-num">01 / PROJECT</div>
+      <div class="p-ico">🌊</div>
+      <div class="p-title">Water Quality Analysis System</div>
+      <div class="p-desc">30GB environmental dataset pipeline with LSTM models for water distribution trend prediction on Google Cloud.</div>
+      <div class="p-stack"><span class="p-tag">PySpark</span><span class="p-tag">Hadoop</span><span class="p-tag">PyTorch</span><span class="p-tag">GCP</span><span class="p-tag">Tableau</span></div>
+      <div class="p-arr"><span>View Details</span><div class="arr-ico">↗</div></div>
+    </div>
+
+    <div class="p-card rv" style="transition-delay:.06s" onclick="openModal('kvstore')">
+      <div class="p-num">02 / PROJECT</div>
+      <div class="p-ico">⚙️</div>
+      <div class="p-title">Fault-Tolerant Sharded Key-Value Store</div>
+      <div class="p-desc">Distributed storage using the Raft consensus protocol with sharded replication and fault-tolerant data storage.</div>
+      <div class="p-stack"><span class="p-tag">C++</span><span class="p-tag">Raft Protocol</span><span class="p-tag">SQLite</span><span class="p-tag">Distributed Systems</span></div>
+      <div class="p-arr"><span>View Details</span><div class="arr-ico">↗</div></div>
+    </div>
+
+    <div class="p-card rv" style="transition-delay:.12s" onclick="openModal('gpu')">
+      <div class="p-num">03 / PROJECT</div>
+      <div class="p-ico">🖥️</div>
+      <div class="p-title">GPU Power Consumption Analyzer</div>
+      <div class="p-desc">Profiling GPU workload energy consumption; optimizing CPU/GPU configurations for edge computing efficiency.</div>
+      <div class="p-stack"><span class="p-tag">PyTorch</span><span class="p-tag">TensorRT</span><span class="p-tag">nvidia-smi</span><span class="p-tag">Python</span></div>
+      <div class="p-arr"><span>View Details</span><div class="arr-ico">↗</div></div>
+    </div>
+
+    <div class="p-card rv" style="transition-delay:.18s" onclick="openModal('wearable')">
+      <div class="p-num">04 / PROJECT</div>
+      <div class="p-ico">❤️</div>
+      <div class="p-title">Wearable Health Analytics Dashboard</div>
+      <div class="p-desc">Real-time dashboard processing 50K+ daily data points from Fitbit &amp; Withings APIs — heart rate, sleep, steps, elevation.</div>
+      <div class="p-stack"><span class="p-tag">Python</span><span class="p-tag">AWS MSK</span><span class="p-tag">Kafka</span><span class="p-tag">React</span><span class="p-tag">Fitbit API</span></div>
+      <div class="p-arr"><span>View Details</span><div class="arr-ico">↗</div></div>
+    </div>
+
+    <div class="p-card rv" style="transition-delay:.24s" onclick="openModal('medical')">
+      <div class="p-num">05 / PROJECT</div>
+      <div class="p-ico">🏥</div>
+      <div class="p-title">Medical Research Visualization Platform</div>
+      <div class="p-desc">Full-stack platform for querying and visualizing medical research data with 70% faster queries via Redis &amp; Docker.</div>
+      <div class="p-stack"><span class="p-tag">React</span><span class="p-tag">Angular</span><span class="p-tag">Django</span><span class="p-tag">Redis</span><span class="p-tag">Plotly.js</span></div>
+      <div class="p-arr"><span>View Details</span><div class="arr-ico">↗</div></div>
+    </div>
+
+    <div class="p-card rv" style="transition-delay:.3s" onclick="openModal('anomaly')">
+      <div class="p-num">06 / PROJECT</div>
+      <div class="p-ico">🔍</div>
+      <div class="p-title">ML Anomaly Detection System</div>
+      <div class="p-desc">Production ML system for industrial equipment monitoring achieving 93% accuracy with real-time telemetry ingestion.</div>
+      <div class="p-stack"><span class="p-tag">Scikit-learn</span><span class="p-tag">Python</span><span class="p-tag">NumPy</span><span class="p-tag">MATLAB</span></div>
+      <div class="p-arr"><span>View Details</span><div class="arr-ico">↗</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg2)">
+  <div class="rv">
+    <div class="slbl">Education</div>
+    <h2 class="stitle">Academic <span class="grad-text">foundations</span></h2>
+    <p class="ssub">Blending computer science theory with hands-on system building.</p>
+  </div>
+
+  <div class="edu-grid">
+    <!-- UMass -->
+    <div class="edu-card rv">
+      <div class="edu-badge">Graduate · Current</div>
+      <div class="edu-school">University of Massachusetts, Dartmouth</div>
+      <div class="edu-deg">Master of Science — Computer Information Systems, Data Science<br><span style="font-size:12px;color:var(--muted)">North Dartmouth, Massachusetts</span></div>
+      <div class="edu-meta">
+        <div class="edu-mi">📅 Aug 2024 – May 2026</div>
+        <div class="gpa">⭐ GPA: 4.0</div>
+      </div>
+      <hr class="edu-divider">
+      <div class="edu-section-ttl">Relevant Coursework</div>
+      <div class="cw-grid">
+        <div class="cw-item"><div class="cw-dot"></div>Machine Learning</div>
+        <div class="cw-item"><div class="cw-dot"></div>Distributed Systems</div>
+        <div class="cw-item"><div class="cw-dot"></div>Data Engineering</div>
+        <div class="cw-item"><div class="cw-dot"></div>Cloud Computing</div>
+        <div class="cw-item"><div class="cw-dot"></div>Deep Learning</div>
+        <div class="cw-item"><div class="cw-dot"></div>Big Data Analytics</div>
+        <div class="cw-item"><div class="cw-dot"></div>Database Systems</div>
+        <div class="cw-item"><div class="cw-dot"></div>Applied Statistics</div>
+      </div>
+      <hr class="edu-divider">
+      <div class="edu-section-ttl">Focus Areas</div>
+      <div class="edu-tags">
+        <span class="etag">Machine Learning</span>
+        <span class="etag">Distributed Systems</span>
+        <span class="etag">Data Engineering</span>
+        <span class="etag">Cloud Computing</span>
+      </div>
+    </div>
+
+    <!-- IIIT -->
+    <div class="edu-card rv" style="transition-delay:.1s">
+      <div class="edu-badge" style="color:var(--a2);background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.2)">Undergraduate · Completed</div>
+      <div class="edu-school">Indian Institute of Information Technology, Sricity</div>
+      <div class="edu-deg">Bachelor of Technology — Electronics &amp; Communication Engineering<br><span style="font-size:12px;color:var(--muted)">Chittoor, Andhra Pradesh, India</span></div>
+      <div class="edu-meta">
+        <div class="edu-mi">📅 Aug 2017 – May 2021</div>
+        <div class="gpa" style="color:var(--a2);background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.2)">⭐ GPA: 3.2</div>
+      </div>
+      <hr class="edu-divider">
+      <div class="edu-section-ttl">Relevant Coursework</div>
+      <div class="cw-grid">
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Algorithms &amp; DS</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Signal Processing</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Embedded Systems</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Communications</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Digital Electronics</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Control Systems</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Microprocessors</div>
+        <div class="cw-item"><div class="cw-dot" style="background:var(--a2)"></div>Computer Networks</div>
+      </div>
+      <hr class="edu-divider">
+      <div class="edu-section-ttl">Core Studies</div>
+      <div class="edu-tags">
+        <span class="etag">Algorithms</span>
+        <span class="etag">Signal Processing</span>
+        <span class="etag">Embedded Systems</span>
+        <span class="etag">Communications</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div class="rv" style="margin-top:40px;transition-delay:.15s">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px">Certifications</div>
+    <div class="cert-row">
+      <div class="cert-card"><span class="cert-ico">🐍</span><div><div class="cert-name">Python (Basic) Certificate</div><div class="cert-by">HackerRank</div></div></div>
+      <div class="cert-card"><span class="cert-ico">✂️</span><div><div class="cert-name">CutShort Certified Python – Basic</div><div class="cert-by">CutShort</div></div></div>
+      <div class="cert-card"><span class="cert-ico">🧠</span><div><div class="cert-name">Python for Data Science &amp; AI</div><div class="cert-by">IBM / Coursera</div></div></div>
+      <div class="cert-card"><span class="cert-ico">🤖</span><div><div class="cert-name">Machine Learning Specialization</div><div class="cert-by">Stanford / Coursera</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="rv">
+    <div class="slbl">Research</div>
+    <h2 class="stitle">Published <span class="grad-text">work</span></h2>
+    <p class="ssub">Peer-reviewed research in wearable data processing and time-series imputation.</p>
+  </div>
+  <div class="pub-list">
+    <a href="https://doi.org/10.3389/fdata.2024.1422650" target="_blank" class="pub rv">
+      <div class="pub-yr">2024</div>
+      <div style="flex:1">
+        <div class="pub-j">Frontiers in Big Data · Aug 2024</div>
+        <div class="pub-t">Efficient Use of Binned Data for Imputing Univariate Time Series Data</div>
+        <div class="pub-d">Organized raw time series wearable data using a binned approach to improve imputation quality and reliability for health research pipelines.</div>
+      </div>
+      <div class="pub-arr2">↗</div>
+    </a>
+    <a href="https://www.mdpi.com/1424-8220/23/3/1454" target="_blank" class="pub rv" style="transition-delay:.1s">
+      <div class="pub-yr">2023</div>
+      <div style="flex:1">
+        <div class="pub-j">MDPI Sensors · Jan 2023</div>
+        <div class="pub-t">Binned Data Imputation for Wearable Time Series</div>
+        <div class="pub-d">Retrieved and preprocessed raw wearable sensor data into binned time intervals to support accurate missing-value imputation.</div>
+      </div>
+      <div class="pub-arr2">↗</div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--bg2);text-align:center">
+  <div class="con-inner rv">
+    <div class="slbl" style="justify-content:center">Contact</div>
+    <h2 class="stitle">Let's build <span class="grad-text">something great</span></h2>
+    <p style="font-size:15px;color:var(--sub);line-height:1.7;max-width:460px;margin:0 auto">Open to full-time Software Engineering roles, research collaborations, and interesting projects.</p>
+    <div class="cbox">
+      <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:14px">Reach out directly</div>
+      <a href="mailto:pavankumar.etta02@gmail.com" class="c-email">pavankumar.etta02@gmail.com</a>
+      <div class="c-phone">📞 +1 (508) 863-0500 · North Dartmouth, MA</div>
+      <div class="c-links">
+        <a href="https://www.linkedin.com/in/pavan-kumaretta-b9b100174" target="_blank" class="btn-p">LinkedIn →</a>
+        <a href="https://github.com/Elizah550" target="_blank" class="btn-o">GitHub ↗</a>
+        <a href="./assets/Pavan_Kumar_Etta_SD.pdf" target="_blank" class="btn-o">Resume ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Pavan Kumar Etta</span> · Crafted with precision</p>
+  <p>Greater Boston, MA · <a href="mailto:pavankumar.etta02@gmail.com">Open to relocation</a></p>
+</footer>
+
+<!-- PROJECT MODAL -->
+<div class="modal-ov" id="modalOv" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div id="mContent"></div>
+  </div>
+</div>
+
+<script>
+// ── THEME ──
+function toggleTheme(){
+  const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',d?'light':'dark');
+  localStorage.setItem('theme',d?'light':'dark');
+}
+const saved=localStorage.getItem('theme');
+if(saved) document.documentElement.setAttribute('data-theme',saved);
+
+// Fix Flask logo in dark mode
+function fixLogos(){
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  document.querySelectorAll('img[alt="Flask"], img[alt="Next.js"], img[alt="GitHub"]').forEach(img=>{
+    img.style.filter=isDark?'invert(1)':'none';
+  });
+  document.querySelectorAll('img[alt="Kafka"]').forEach(img=>{
+    img.style.filter=isDark?'invert(1) brightness(2)':'none';
+  });
+}
+fixLogos();
+document.getElementById('themeBtn').addEventListener('click',()=>{setTimeout(fixLogos,50)});
+
+// ── SCROLL REVEAL ──
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  });
+});
+
+// ── PROJECT MODALS ──
+const projects={
+  water:{ico:'🌊',title:'Water Quality Analysis System',sub:'Big Data · Environmental Science · GCP',
+    desc:'Large-scale environmental data processing pipeline analyzing water quality distribution trends. Built to handle 30GB of data with distributed processing and LSTM-based forecasting on GCP.',
+    hl:[{i:'📊',t:'Processed 30GB NetCDF environmental datasets using PySpark and Hadoop for distributed computation.'},{i:'🧠',t:'Trained LSTM neural networks achieving a Mean Absolute Error (MAE) of 1.45 for water distribution trend prediction.'},{i:'☁️',t:'Deployed end-to-end pipeline on GCP with scalable Dataproc clusters.'},{i:'📈',t:'Interactive Tableau dashboards for trend forecasts and anomaly pattern visualization.'}],
+    stack:['PySpark','Hadoop','PyTorch','LSTM','GCP','Dataproc','Tableau','NetCDF','Python']},
+  kvstore:{ico:'⚙️',title:'Fault-Tolerant Sharded Key-Value Store',sub:'Distributed Systems · Consensus · C++',
+    desc:'Production-quality distributed storage from scratch implementing the Raft consensus protocol for strong consistency, with horizontal sharding for massive scalability.',
+    hl:[{i:'🔄',t:'Implemented Raft consensus in C++ — leader election, log replication, and fault tolerance across nodes.'},{i:'🗂️',t:'Consistent hashing-based sharding to distribute data across node groups for horizontal scaling.'},{i:'💾',t:'SQLite as durable storage backend with Write-Ahead Logging (WAL) for crash recovery.'},{i:'⚡',t:'System remains available and consistent even when a minority of nodes fail.'}],
+    stack:['C++','Raft Protocol','SQLite','Distributed Systems','Consistent Hashing','WAL']},
+  gpu:{ico:'🖥️',title:'GPU Power Consumption Analyzer',sub:'Edge Computing · Systems Optimization',
+    desc:'Research-grade tool for profiling GPU workload energy consumption, enabling better resource planning for edge inference deployments with tight power budgets.',
+    hl:[{i:'⚡',t:'Algorithms to measure and analyze GPU workload energy using PyTorch and TensorRT.'},{i:'📉',t:'Identified optimal CPU/GPU configurations for edge workloads — reduced energy use by up to 25%.'},{i:'🔍',t:'Fine-grained hardware monitoring via nvidia-smi: memory bandwidth, thermal throttling, clock frequencies.'},{i:'📊',t:'Profiling reports comparing inference efficiency across model architectures.'}],
+    stack:['PyTorch','TensorRT','nvidia-smi','Python','CUDA','Edge Computing']},
+  wearable:{ico:'❤️',title:'Wearable Health Analytics Dashboard',sub:'Health Tech · Real-Time Streaming · AWS',
+    desc:'Enterprise-grade health analytics platform processing wearable device data streams in near real-time, enabling actionable insights from continuous biometric monitoring.',
+    hl:[{i:'📡',t:'Integrated Fitbit, Apple Health, and Withings APIs — 50K+ daily data points processed.'},{i:'🔄',t:'Event-driven processing on AWS MSK (Managed Kafka) with fault-tolerant multi-partition design.'},{i:'⚡',t:'Reduced system latency by ~40% with optimized distributed pipelines.'},{i:'📊',t:'Preprocessing time cut 40% — near real-time analytics for heart rate, sleep, steps, elevation.'}],
+    stack:['Python','AWS MSK','Kafka','React','Django','Fitbit API','Apple Health','DynamoDB','Lambda']},
+  medical:{ico:'🏥',title:'Medical Research Visualization Platform',sub:'Research Tools · Data Viz · Full-Stack',
+    desc:'Full-stack web platform for UMass Dartmouth researchers to query, explore, and visualize complex medical datasets with high performance and rich interactive visualizations.',
+    hl:[{i:'🎨',t:'React and Angular frontends with TypeScript and interactive charts powered by Plotly.js.'},{i:'🔥',t:'Redis caching layer reducing database load and improving query response time by 70%.'},{i:'🗄️',t:'Optimized MySQL schema with strategic partitioning and indexing for large-dataset queries.'},{i:'🐳',t:'Docker containerization leading to 25% improvement in active concurrent users.'}],
+    stack:['React','Angular','TypeScript','Django','Redis','MySQL','Plotly.js','Docker','Python']},
+  anomaly:{ico:'🔍',title:'ML Anomaly Detection System',sub:'Industrial ML · Signal Processing',
+    desc:'Production ML system for real-time industrial equipment health monitoring, detecting anomalies in telemetry streams from embedded sensor hardware.',
+    hl:[{i:'🤖',t:'ML anomaly detection with Scikit-learn classifiers achieving ~93% accuracy on equipment monitoring.'},{i:'📡',t:'Real-time telemetry ingestion pipelines in Python/NumPy from embedded hardware.'},{i:'🔧',t:'Signal preprocessing and feature extraction improved signal quality by ~30%.'},{i:'⚡',t:'Reduced false positive rate enabling maintenance teams to act on genuine anomalies.'}],
+    stack:['Python','Scikit-learn','NumPy','MATLAB','Signal Processing','Time Series','Feature Engineering']}
+};
+
+function openModal(id){
+  const d=projects[id]; if(!d) return;
+  document.getElementById('mContent').innerHTML=`
+    <div class="m-ico">${d.ico}</div>
+    <div class="m-title">${d.title}</div>
+    <div class="m-sub">${d.sub}</div>
+    <div class="m-desc">${d.desc}</div>
+    <div class="m-stitle">Key Highlights</div>
+    <div class="m-hl">${d.hl.map(h=>`<div class="m-hl-item"><div class="m-hl-ico">${h.i}</div><div>${h.t}</div></div>`).join('')}</div>
+    <div class="m-stitle">Tech Stack</div>
+    <div class="m-stack">${d.stack.map(t=>`<span class="m-tag">${t}</span>`).join('')}</div>`;
+  document.getElementById('modalOv').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){if(e.target===document.getElementById('modalOv'))closeModalDirect()}
+function closeModalDirect(){document.getElementById('modalOv').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect()});
+</script>
+</body>
+</html>
