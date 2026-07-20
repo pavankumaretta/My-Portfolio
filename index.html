@@ -599,15 +599,19 @@
 
             <ul class="bullets">
               <li>
-                Architected a Next.js-based web application with a Flask backend
-                and MongoDB, enabling users to upload financial documents and view
-                detailed reports generated through an NLP pipeline.
+               Rearchitected financial-document processing by replacing Hadoop-based 
+               batch workflows with a serverless, event-driven pipeline using Python, 
+                PySpark, AWS Glue, S3, Athena, and Step Functions, reducing latency by 50%.
               </li>
 
               <li>
-                Integrated LangChain for AI workflow orchestration and optimized
-                ChatGPT-based text extraction, improving extraction accuracy by
-                30%; implemented BERT-based classification with 93% accuracy.
+                Developed and integrated a production document-routing service using Python,
+                BERT, and PyTorch, achieving 93% accuracy through input validation, error handling, 
+                workflow orchestration, and downstream service integration.
+              </li>
+               <li>
+                Optimized Snowflake schemas and built transformation and scheduling pipelines with dbt, 
+                Airflow, and Python, reducing financial-report query time by 60% across data-access workflows.
               </li>
             </ul>
 
@@ -636,44 +640,39 @@
 
             <ul class="bullets">
               <li>
-                Built iOS, Android, and web features for the CureOrg platform,
-                enabling patients to link 5+ wearables and view daily heart rate,
-                sleep, steps, calories, activity, distance, and elevation metrics
-                through Fitbit, Garmin, Withings, and Apple Health integrations.
+               Owned delivery of reusable integrations for five wearable providers Fitbit, 
+               Garmin, WHOOP, Apple Health, and Google Fit cutting onboarding time by 50% using Java, 
+               Spring Boot, OAuth 2.0, Kafka, PostgreSQL, and microservices.
               </li>
 
               <li>
-                Automated daily health-data retrieval, reducing collection effort
-                by approximately 90%, by building Python ingestion jobs and Django
-                commands on AWS EC2 to manage authentication, refresh tokens, parse
-                JSON, retry failed requests, and store validated records.
+                Led webhook scaling to sustain 3x peak traffic without degradation using 
+                EC2 Auto Scaling, Application Load Balancer, Docker, Kubernetes, Redis-backed 
+                workload distribution, and isolated AWS subnets.
               </li>
 
               <li>
-                Improved research-data reliability by converting 5-second
-                heart-rate signals into 1-minute windows using SQL, validating API
-                data, handling missing records, and storing metrics in MySQL on
-                AWS EC2.
+                Architected a unified clinical model for activity, heart rate, sleep, 
+                SpO2, and device metadata, reducing downstream transformation code by 60% using C#, .NET, 
+                Azure Service Bus, and SQL Server across workflows.
               </li>
 
               <li>
-                Reduced sync debugging time by approximately 40% by building
-                internal monitoring views with validation logs and AWS CloudWatch
-                alerts to identify failed API calls, delayed jobs, and missing
-                records faster.
+                Drove observability across synchronization workflows, reducing debugging 
+                time by 40% through CloudWatch metrics, structured logs, audit trails, webhook monitoring, 
+                and SNS alerts for token failures, delayed jobs, and malformed events.
               </li>
 
               <li>
-                Enhanced health-metrics dashboard performance by up to 70% by
-                optimizing Django REST API responses, MySQL query patterns,
-                indexing, pagination, and Redis caching for frequently accessed
-                user metrics.
+                Led modernization of healthcare monolith into scalable Go microservices using gRPC, 
+                Kubernetes, and CockroachDB, reducing deployment time by 65% and improving reliability 
+                across high-volume patient data.
               </li>
 
               <li>
-                Accelerated backend and dashboard deployments by 80% by
-                containerizing services with Docker and automating production
-                deployments on AWS EKS using GitLab CI/CD pipelines.
+                Spearheaded regression and workflow test automation across engineering, 
+                QA, and product teams using Testim and Selenium, increasing testing speed by 80%,
+                reducing manual effort and latency by 25%, and accelerating release validation.
               </li>
             </ul>
 
@@ -703,7 +702,7 @@
           <article class="job">
             <div class="job-top">
               <h3>Software Engineer Intern</h3>
-              <span class="period">Aug 2021 – Feb 2022</span>
+              <span class="period">Dec 2021 – Jul 2022</span>
             </div>
 
             <div class="company">
@@ -712,17 +711,21 @@
 
             <ul class="bullets">
               <li>
-                Developed a BLE-based asset-tracking system using an Android app,
-                BLE beacons, gateways, and REST APIs, enabling real-time location
-                data uploads to AWS S3 with persistent background services for
-                24/7 tracking and improved battery efficiency.
+                Engineered a persistent Android BLE scanning service that enabled 24/7 
+                real-time asset tracking while reducing battery consumption by 85% and 
+                routing location events through gateways and REST APIs to Amazon S3.
               </li>
 
               <li>
-                Built an admin analytics dashboard using React, Google Maps,
-                AWS API Gateway, DynamoDB, RDS, CloudWatch, and scheduled jobs to
-                monitor device health, visualize coordinates, detect offline
-                gateways, and analyze asset-movement patterns.
+              Implemented real-time device-heartbeat monitoring through MQTT, 
+              AWS IoT Core, Kinesis, CloudWatch, and SNS, reducing gateway-failure detection
+              from 15 minutes to under 1 minute using rule-based anomaly alerts.
+              </li>
+               <li>
+              Designed and deployed a serverless backend using AWS Lambda,
+              API Gateway, DynamoDB, RDS, and EventBridge, increasing device-telemetry 
+              processing capacity by 3x across ingestion, persistence, scheduled processing,
+              and asset analytics.
               </li>
             </ul>
 
